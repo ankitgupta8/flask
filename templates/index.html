@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Neuron HTML CSS Template</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/css/style.css">
+
+<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+
+<!-- Main css -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">{{params["name"]}}</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-home parallax-section">
+     <div class="overlay"></div>
+     <div id="particles-js"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>{{params["name"]}}</h1>
+                    <h4>Responsive Blog HTML CSS Website Template</h4>
+                    <a href="#blog" class="smoothScroll btn btn-default">Discover More</a>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Section -->
+
+<section id="blog">
+     <div class="container">
+          <div class="row">
+               {%  for post in posts  %}
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="blog-post-thumb">
+                         <div class="blog-post-image">
+                              <a href="single-post.html">
+                                   <img src="../static/images/old/blog-image1.jpg" class="img-responsive" alt="Blog Image">
+                              </a>
+                         </div>
+                         <div class="blog-post-title">
+                              <h3><a href="/post/{{post.slug}}">{{post.title}}</a></h3>
+                         </div>
+                         <div class="blog-post-format">
+                              <span><a href="#"><img src="../static/images/old/author-image1.jpg" class="img-responsive img-circle"> {{post.name}}</a></span>
+                              <span><i class="fa fa-date"></i> {{post.date}}</span>
+                              <span><a href="#"><i class="fa fa-comment-o"></i> 35 Comments</a></span>
+                         </div>
+                         <div class="blog-post-des">
+                              <p>{{post.sub_title}}</p>
+                              <a href="/post/{{post.slug}}" class="btn btn-default">Continue Reading</a>
+                         </div>
+                    </div>
+               
+                   
+               </div>
+               {%  endfor  %}
+               {%  for post2 in user_post  %}
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="blog-post-thumb">
+                         <div class="blog-post-image">
+                              <a href="single-post.html">
+                                   <img src="../static/images/old/blog-image1.jpg" class="img-responsive" alt="Blog Image">
+                              </a>
+                         </div>
+                         <div class="blog-post-title">
+                              <h3><a href="/post/{{post2.sn}}">{{post2.content}}</a></h3>
+                         </div>
+                         <div class="blog-post-format">
+                              <span><a href="#"><img src="../static/images/old/author-image1.jpg" class="img-responsive img-circle"> {{post2.name}}</a></span>
+                              <span><i class="fa fa-date"></i> {{post2.date}}</span>
+                              <span><a href="#"><i class="fa fa-comment-o"></i> 35 Comments</a></span>
+                         </div>
+                         <div class="blog-post-des">
+                              <p>name</p>
+                              <a href="/post/{{post2.sn}}" class="btn btn-default">Continue Reading</a>
+                         </div>
+                    </div>
+               
+                   
+               </div>
+               {%  endfor  %}
+          </div>
+     </div>
+</section>
+
+<section id="contact">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <h2>Create your own Comments</h2>
+                    <p>You are free to post your own Comments with your name too...</p>
+
+                    <form action="create_post" method="POST">
+                         <div class="col-md-4 col-sm-4">
+                              <input name="name" type="text" class="form-control" id="name" placeholder="Name">
+                         </div>
+                         <div class="col-md-4 col-sm-4">
+                              <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                      	 </div>
+                         
+                         <div class="col-md-12 col-sm-12">
+                              <textarea name="content" rows="5" class="form-control" id="message" placeholder="Enter your Comments"></textarea>
+                         </div>
+                         <div class="col-md-3 col-sm-6">
+                              <input name="submit" type="submit" class="form-control" id="submit" value="Send">
+                         </div>
+                    </form>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <h3>Ankit</h3>
+                    <p>A Ankit Gupta Blog</p>
+                    <div class="footer-copyright">
+                         <p>Copyright &copy; 2017 Your Company - Design: Tooplate</p>
+                    </div>
+               </div>
+
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/particles.min.js"></script>
+<script src="../static/js/app.js"></script>
+<script src="../static/js/jquery.parallax.js"></script>
+<script src="../static/js/smoothscroll.js"></script>
+<script src="../static/j../s/custom.js"></script>
+
+</body>
+</html>
